@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-# Create your views here.
+from . import models
+
 def icecream_list(request):
-    return HttpResponse('Здесь будет список морожеглшл')
+    db_query = models.icecream_db # получаем данные: полный список сортов
+    icecreams = f'Список мороженного {db_query}'
+    return HttpResponse(icecreams)
