@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from . import models  # можно заменить на from .models import icecream_db
 
+
 def icecream_list(request):
     db_query = models.icecream_db # получаем данные: полный список сортов
     icecreams = ''
