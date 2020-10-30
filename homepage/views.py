@@ -1,13 +1,15 @@
 from django.shortcuts import render
 from icecream.models import icecream_db
-from anfis.models import friends_db
-from anfis.services import what_weather
+from anfis.models import friends_db, friends_year
+from anfis.services import what_weather, what_temperature, what_conclusion
 
 def index(request):
     icecreams = ''
     friends = ''
     city_weather = ''
     friend_output = ''
+    parsed_temperature = ''
+    conclusion = ''
 
     for friend in friends_db:
         friends += (f'<input type="radio" name="friend"'
@@ -17,13 +19,15 @@ def index(request):
         ice_form = (f'<input type="radio" name="icecream"'
                     f' required value="{icecream_db[i]["name"]}">{icecream_db[i]["name"]}')
         icelink = f"<a href='icecream/{i}/'>Узнать состав</a> <br>"
-        icecreams += f'{ice_form} | {icelink} <br>'
+        icecreams += f'{ice_form} | {icelink}'
 
     if request.method == 'POST':
         selected_friend = request.POST['friend']
         city = friends_db[selected_friend]
         weather = what_weather(city)
         selected_icecream = request.POST['icecream']
+        parsed_temperature = what_temperature(weather)
+        conclusion = what_conclusion(parsed_temperature)
         friend_output = f'{selected_friend}, тебе прислали {selected_icecream}!'
         city_weather = f'Погода в городе {city}: {weather}'
 
@@ -33,6 +37,8 @@ def index(request):
         'friends': friends,
         'friend_output': friend_output,
         'city_weather': city_weather,
+        'parsed_temperature': parsed_temperature,
+        'conclusion': conclusion,
     }
 
     return render(request, 'homepage/index.html', context)

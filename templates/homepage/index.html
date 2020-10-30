@@ -9,7 +9,8 @@
       <br>
       <p> {{ friend_output|safe }} </p>
       <p> {{ city_weather|safe }} </p>
-
+      <p> Числовое значение температуры: {{ parsed_temperature }} </p>
+      <p> Мнение Анфисы: {{ conclusion }}</p>
       <form action="/" method="post">
           {% csrf_token %} <!--Текущая стрница ВАЖНО!!!!-->
           <h3>Выберите друга</h3>

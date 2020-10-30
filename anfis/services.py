@@ -13,3 +13,30 @@ def what_weather(city):
         return response.text.strip()
     else:
         return '<ошибка на сервере погоды. попробуйте   позже>'
+
+def what_temperature(weather):
+    if (weather == '<сетевая ошибка>' or weather == '<ошибка на сервере погоды. попробуйте   позже>'):
+        return weather
+    temperature = weather.split()[1]
+    parsed_temperature = ''
+    for char in temperature:
+        if char == '-':
+            parsed_temperature += char
+        try:
+            num = int(char)
+            parsed_temperature += char
+        except ValueError:
+            continue
+        return parsed_temperature
+
+def what_conclusion(parsed_temperature):
+    try:
+        temperature = int(parsed_temperature)
+        if temperature < 18:
+            return 'Холодно'
+        elif (temperature >= 18 and temperature <= 27):
+            return 'В самый раз'
+        elif (temperature > 27):
+            return 'Жарко'
+    except ValueError:
+        return 'Не могу узнать погоду'
