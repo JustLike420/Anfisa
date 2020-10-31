@@ -19,6 +19,7 @@ INSTALLED_APPS = [
     'homepage',
     'icecream',
     'anfis',
+    'city',
 ]
 
 MIDDLEWARE = [
