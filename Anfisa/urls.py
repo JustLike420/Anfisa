@@ -9,5 +9,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('homepage.urls')),
     path('icecream/', include('icecream.urls')),
-    path('city/', include('city.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
