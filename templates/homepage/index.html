@@ -1,20 +1,15 @@
+{% extends 'homepage/layout.html' %}
 
-<!DOCTYPE html>
-<html>
-  <head>
-      <meta charset="UTF-8">
-      <title>Главная</title>
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  </head>
-  <body>
-      <h1>Анфиса для друзей</h1>
+{% block title %}Главная{% endblock %}
+
+{% block content %}
       <img src="https://pictures.s3.yandex.net/resources/anfisa_1594642601.png">
       <br>
       <p> {{ friend_output|safe }} </p>
       <p> {{ city_weather|safe }} </p>
-      <p> Мнение Анфисы: {{ conclusion }}</p>
+      <p> {{ conclusion }}</p>
       <form action="/" method="post">
-          {% csrf_token %} <!--Текущая стрница | ВАЖНО!!!!-->
+          {% csrf_token %} <!--ВАЖНО!!!!-->
           <h3>Выберите друга</h3>
           {{ friends|safe }}
           <br>
@@ -22,5 +17,4 @@
           {{ icecreams|safe }}
           <input type="submit" value="Угостить">
       </form>
-  </body>
-</html>
+{% endblock %}

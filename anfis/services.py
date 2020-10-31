@@ -33,10 +33,10 @@ def what_conclusion(parsed_temperature):
     try:
         temperature = int(parsed_temperature)
         if temperature < 18:
-            return 'Холодно'
+            return 'Мнение Анфисы: Холодно'
         elif (temperature >= 18 and temperature <= 27):
-            return 'В самый раз'
+            return 'Мнение Анфисы: В самый раз'
         elif (temperature > 27):
             return 'Жарко'
     except ValueError:
-        return 'Не могу узнать погоду'
+        return 'Мнение Анфисы: Не могу узнать погоду'

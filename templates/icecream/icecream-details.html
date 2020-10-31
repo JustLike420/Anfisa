@@ -1,17 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<body>
-    <h1>Анфиса для друзей</h1>
-    <h1> {{ name }} </h1>
+{% extends 'homepage/layout.html' %}
+
+{% block title %} {{ name }} {% endblock %}
+
+{% block content %}
+    <h2> {{ name }} </h2>
     <p>
         {{ description }}
         <br>
-        <br>
     </p>
     <a href="/">На главную</a>
-</body>
-</html>
+{% endblock %}
