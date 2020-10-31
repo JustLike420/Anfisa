@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from icecream.models import icecream_db
-from anfis.models import friends_db, friends_year
 from anfis.services import what_weather, what_temperature, what_conclusion
+from anfis.models import Friend
+from icecream.models import Icecream
 
 def index(request):
     icecreams = ''
@@ -10,20 +10,25 @@ def index(request):
     friend_output = ''
     parsed_temperature = ''
     conclusion = ''
+    friend_database = Friend.objects.all()
+    icecream_database = Icecream.objects.all()
+    i = 1
 
-    for friend in friends_db:
+    for friend in friend_database:
         friends += (f'<input type="radio" name="friend"'
-                    f' required value="{friend}">{friend} {friends_year[friend]}<br>')
+                    f' required value="{friend}">{friend}<br>')
 
-    for i in range(len(icecream_db)):
+    for cream in icecream_database:
         ice_form = (f'<input type="radio" name="icecream"'
-                    f' required value="{icecream_db[i]["name"]}">{icecream_db[i]["name"]}')
+                    f' required value="{cream}">{cream}')
         icelink = f"<a href='icecream/{i}/'>Узнать состав</a> <br>"
         icecreams += f'{ice_form} | {icelink}'
+        i += 1
 
     if request.method == 'POST':
         selected_friend = request.POST['friend']
-        city = friends_db[selected_friend]
+        k = Friend.objects.get(name=selected_friend)
+        city = k.city
         weather = what_weather(city)
         selected_icecream = request.POST['icecream']
         parsed_temperature = what_temperature(weather)

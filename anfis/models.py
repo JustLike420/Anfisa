@@ -1,24 +1,14 @@
 from django.db import models
 
-# Create your models here.
-friends_db = {
-    'Дима': 'Астана',
-    'Соня': 'Екатеринбург',
-    'Стёпа': 'Калязин',
-    'Андрей': 'Ульяновск',
-    'Артём': 'Переделкино',
-    'Антон': 'Орск',
-    'Коля': 'Красноярск',
-    'Лера': 'Полевской',
-}
+class Friend(models.Model):
+    name = models.CharField("Имя", max_length=50)
+    city = models.CharField("Город", max_length=50)
 
-friends_year = {
-    'Дима': '18',
-    'Соня': '21',
-    'Стёпа': '17',
-    'Андрей': '21',
-    'Артём': '26',
-    'Антон': '18',
-    'Коля': '15',
-    'Лера': '20',
-}
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Друг'
+        verbose_name_plural = 'Друзья'
+
+
