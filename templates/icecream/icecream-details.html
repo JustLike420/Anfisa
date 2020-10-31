@@ -1,4 +1,5 @@
 {% extends 'homepage/layout.html' %}
+{% load static %}
 
 {% block title %} {{ name }} {% endblock %}
 
@@ -7,6 +8,7 @@
     <p>
         {{ description }}
         <br>
+        <img src="{{ STATIC_URL }}icecream/img/{{ pk }}.png" alt="" width="230px" height="500x">
     </p>
     <a href="/">На главную</a>
 {% endblock %}
