@@ -19,6 +19,8 @@ INSTALLED_APPS = [
     'homepage',
     'icecream',
     'anfis',
+    'friends_reg',
+    'icecream_reg',
 ]
 
 MIDDLEWARE = [

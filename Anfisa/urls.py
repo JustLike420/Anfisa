@@ -10,4 +10,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('homepage.urls')),
     path('icecream/', include('icecream.urls')),
+    path('friends/', include('friends_reg.urls')),
+    path('icecreams/', include('icecream_reg.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+

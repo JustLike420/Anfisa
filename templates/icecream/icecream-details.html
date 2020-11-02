@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block title %} {{ name }} {% endblock %}
+{% block styles %} <link rel="stylesheet" href="{% static 'icecream/css/icecream.css' %}"> {% endblock %}
 
 {% block content %}
     <h2> {{ name }} </h2>
@@ -10,5 +11,5 @@
         <br>
         <img src="{{ STATIC_URL }}icecream/img/{{ pk }}.png" alt="" width="230px" height="500x">
     </p>
-    <a href="/">На главную</a>
+    <a href="/" class="button">На главную</a>
 {% endblock %}

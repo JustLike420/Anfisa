@@ -36,7 +36,6 @@ def index(request):
         friend_output = f'{selected_friend}, тебе прислали {selected_icecream}!'
         city_weather = f'Погода в городе {city}: {weather}'
 
-
     context = {
         'icecreams': icecreams,
         'friends': friends,
@@ -47,6 +46,7 @@ def index(request):
     }
 
     return render(request, 'homepage/index.html', context)
+
 
 
 

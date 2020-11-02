@@ -1,0 +1,27 @@
+{% extends 'homepage/layout.html' %}
+{% load static %}
+
+
+{% block title %}Добавление друзей{% endblock %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'friends_reg/css/friends_reg.css' %}"> {% endblock %}
+
+{% block content %}
+    <div class="flex-box1">
+        <img src="https://pictures.s3.yandex.net/resources/anfisa_1594642601.png" class="grid-item item1">
+
+        <form action="/" method="post" class="grid-item item2">
+            {% csrf_token %}
+            <label for="name">Название мороженого:</label><br>
+            <input type="text" id="name" name="name"><br>
+
+            <label for="description">Описание мороженого:</label><br>
+            <textarea class="text" type="text" id="description" name="description" cols="100" rows="2"></textarea>
+            <input type="submit" value="Добавить">
+        </form>
+    </div>
+
+    <div class="flex-box2">
+        <a href="/" class="button">На главную</a>
+    </div>
+{% endblock %}
