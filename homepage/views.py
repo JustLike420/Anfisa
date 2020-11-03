@@ -19,11 +19,12 @@ def index(request):
                     f' required value="{friend}">{friend}<br>')
 
     for cream in icecream_database:
+        ice = Icecream.objects.get(name=cream)
         ice_form = (f'<input type="radio" name="icecream"'
                     f' required value="{cream}">{cream}')
-        icelink = f"<a href='icecream/{i}/'>Узнать состав</a> <br>"
-        icecreams += f'{ice_form} | {icelink}'
-        i += 1
+        # icelink = f"<a href='icecream/{ice.id}/'>Узнать состав</a> <br>"
+        icecreams += f'{ice_form} <br>'  # | {icelink}
+
 
     if request.method == 'POST':
         selected_friend = request.POST['friend']
@@ -33,7 +34,8 @@ def index(request):
         selected_icecream = request.POST['icecream']
         parsed_temperature = what_temperature(weather)
         conclusion = what_conclusion(parsed_temperature)
-        friend_output = f'{selected_friend}, тебе прислали {selected_icecream}!'
+        ice = Icecream.objects.get(name=selected_icecream)
+        friend_output = f'{selected_friend}, тебе прислали {selected_icecream} | <a href="icecream/{ice.id}/">Узнать состав</a> <br>'
         city_weather = f'Погода в городе {city}: {weather}'
 
     context = {
