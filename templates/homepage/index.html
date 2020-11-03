@@ -5,8 +5,8 @@
 {% block styles %} <link rel="stylesheet" href="{% static 'homepage/css/homepage.css' %}"> {% endblock %}
 {% block content %}
       <img src="https://pictures.s3.yandex.net/resources/anfisa_1594642601.png">
-      <a href="/friends/" class="button button2" >Добавить друга</a>
-      <a href="/icecreams/" class="button button3">Добавить мороженое</a>
+      <a href="/friends/" class="btn btn-primary button2" >Добавить друга</a>
+      <a href="/icecreams/" class="btn btn-primary button3">Добавить мороженое</a>
       <p> {{ friend_output|safe }} </p>
       <p> {{ city_weather|safe }} </p>
       <p> {{ conclusion }}</p>
@@ -17,7 +17,6 @@
           <h3>Выберите друга</h3>
           {{ friends|safe }}
               </div>
-
           <div class="box2">
           <h2>Выбирите мороженое</h2>
           {{ icecreams|safe }}
