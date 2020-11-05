@@ -19,11 +19,9 @@ def index(request):
                     f' required value="{friend}">{friend}<br>')
 
     for cream in icecream_database:
-        ice = Icecream.objects.get(name=cream)
         ice_form = (f'<input type="radio" name="icecream"'
                     f' required value="{cream}">{cream}')
-        # icelink = f"<a href='icecream/{ice.id}/'>Узнать состав</a> <br>"
-        icecreams += f'{ice_form} <br>'  # | {icelink}
+        icecreams += f'{ice_form} <br>'
 
 
     if request.method == 'POST':
