@@ -2,27 +2,34 @@
 {% load static %}
 
 {% block title %}Главная{% endblock %}
-{% block styles %} <link rel="stylesheet" href="{% static 'homepage/css/homepage.css' %}"> {% endblock %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'homepage/css/homepage.css' %}"> {% endblock %}
 {% block content %}
-      <img src="https://pictures.s3.yandex.net/resources/anfisa_1594642601.png">
-      <a href="/friends/" class="btn btn-primary button2" >Добавить друга</a>
-      <a href="/icecreams/" class="btn btn-primary button3">Добавить мороженое</a>
-      <p> {{ friend_output|safe }} </p>
-      <p> {{ city_weather|safe }} </p>
-      <p> {{ conclusion }}</p>
-      <form action="/" method="post">
-          {% csrf_token %} <!--ВАЖНО!!!!-->
-          <div class="flex-box2">
-              <div class="box1">
-          <h3>Выберите друга</h3>
-          {{ friends|safe }}
-              </div>
-          <div class="box2">
-          <h2>Выбирите мороженое</h2>
-          {{ icecreams|safe }}
-          </div>
-          </div>
-          <input type="submit" value="Угостить">
-      </form>
+    <div class="container position-fixed">
+        <div class="row">
+            <div class="col">
+                <img src="https://pictures.s3.yandex.net/resources/anfisa_1594642601.png">
+            </div>
+            <div class="col">
+                <p> {{ friend_output|safe }}</p>
+                <p> {{ city_weather|safe }}</p>
+                <p> {{ conclusion }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <form action="/" method="post">
+                {% csrf_token %} <!--ВАЖНО!!!!-->
+                <div class="col">
+                    <h3>Выберите друга</h3>
+                    {{ friends|safe }}
+                </div>
+                <div class="col">
+                    <h2>Выбирите мороженое</h2>
+                    {{ icecreams|safe }}
+                </div>
+                <button type="submit" class="btn btn-success">Угостить</button>
+            </form>
+        </div>
+    </div>
 
 {% endblock %}
