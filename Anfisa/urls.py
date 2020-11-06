@@ -12,6 +12,7 @@ urlpatterns = [
     path('icecream/', include('icecream.urls')),
     path('friends/', include('friends_reg.urls')),
     path('icecreams/', include('icecream_reg.urls')),
+    path('oracle/', include('oracle.urls')),
 ]
 
 # подключение static & media файлов

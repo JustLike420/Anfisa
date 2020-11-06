@@ -2,43 +2,47 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-  <head>
-      <meta charset="UTF-8">
-      <title>{% block title %} {% endblock %}</title>  <!-- блок с названием -->
-        <!-- подключение bootstrap -->
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <!-- стили -->
-      <style>
-          body {
-              background-color: lightgrey;
-          }
-      </style>
-      {% block styles %}{% endblock %}
-  </head>
-  <!-- верхняя панель -->
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <h3>Анфиса для друзей </h3>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %}</title>  <!-- блок с названием -->
+    <!-- подключение bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- стили -->
+    <style>
+        body {
+            background-color: lightgrey;
+        }
+    </style>
+    {% block styles %}{% endblock %}
+</head>
+<!-- верхняя панель -->
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <h3>Анфиса для друзей </h3>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="/">Отправка мороженого</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/friends/">Добавить друга</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/icecreams/">Добавить мороженое</a>
-      </li>
-    </ul>
-  </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Отправка мороженого</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/friends/">Добавить друга</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/icecreams/">Добавить мороженое</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/oracle/">Оракул</a>
+            </li>
+        </ul>
+    </div>
 </nav>
-    <!-- основная часть сайта -->
-      {% block content %}
-      {% endblock %}
-  </body>
+<!-- основная часть сайта -->
+{% block content %}
+{% endblock %}
+</body>
 </html>

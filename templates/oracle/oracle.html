@@ -1,0 +1,29 @@
+{% extends 'homepage/layout.html' %}
+
+{% block title %}Оракул{% endblock %}
+
+{% block content %}
+    <div class="container position-fixed">
+        <div class="row">
+            <div class="col">
+                <img src="https://pictures.s3.yandex.net/resources/anfisa_1594642601.png">
+            </div>
+            <div class="col">
+                <p>Длина жизни в днях: {{ days }}</p>
+                <p>Знак зодиака: {{ zod }}</p>
+                <p>Високосность: {{ leaps }}</p>
+                <p>Название года по китайсокму календарю: {{ naz_god }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <input type="date" id="date" name="date">
+                    <button type="submit" class="btn btn-success">Определить</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

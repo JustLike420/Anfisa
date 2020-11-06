@@ -22,6 +22,7 @@ INSTALLED_APPS = [
     'anfis',
     'friends_reg',
     'icecream_reg',
+    'oracle',
 ]
 
 MIDDLEWARE = [
