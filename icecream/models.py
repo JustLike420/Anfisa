@@ -3,6 +3,7 @@ from django.db import models
 class Icecream(models.Model):
     name = models.CharField("Название", max_length=50)
     description = models.TextField("Описание")
+    img = models.ImageField(default='default.jpg')
 
     def __str__(self):
         return self.name
