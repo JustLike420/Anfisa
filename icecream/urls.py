@@ -2,5 +2,5 @@ from . import views
 from django.urls import path, include
 
 urlpatterns = [
-    path('<int:pk>/', views.icecreams_details),
+    path('<int:pk>/', views.icecreams_details),  # pk = primary_key | цифра
 ]

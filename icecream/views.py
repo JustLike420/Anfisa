@@ -1,16 +1,16 @@
 from django.shortcuts import render
-from .models import Icecream  # можно заменить на from .models import icecream_db
+from .models import Icecream
 from Anfisa.settings import STATIC_URL
 
+# функция по выводу страницы с мороженым
 def icecreams_details(request, pk):
-    name = Icecream.objects.get(id=pk)
-    description = name.description
-    img = name.img
+    name = Icecream.objects.get(id=pk)  # quaryset по выбраному мороженому
+    description = name.description  # описание мороженого
+    img = name.img  # изображение мороженого
     context = {
-        'name': name,
-        'description': description,
-        'pk': pk,
-        'STATIC_URL': STATIC_URL,
-        'image': img,
+        'name': name,  # название
+        'description': description,  # описание
+        'pk': pk,  # primary_key
+        'image': img,  # изображение
     }
     return render(request, 'icecream/icecream-details.html', context)

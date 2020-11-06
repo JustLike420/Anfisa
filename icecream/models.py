@@ -1,5 +1,6 @@
 from django.db import models
 
+# БД мороженоеог название:описание:изображение
 class Icecream(models.Model):
     name = models.CharField("Название", max_length=50)
     description = models.TextField("Описание")

@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from anfis.models import Friend
-# Create your views here.
+
+# функция по добавлению данных в базу данных
 def friends_registr(request):
     if request.method == 'POST':
         name_e = request.POST['name']

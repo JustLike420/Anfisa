@@ -1,5 +1,5 @@
 from django.db import models
-
+# база данных друг:мороженое
 class Friend(models.Model):
     name = models.CharField("Имя", max_length=50)
     city = models.CharField("Город", max_length=50)

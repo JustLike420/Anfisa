@@ -9,6 +9,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+# подключение приложений
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -38,7 +39,7 @@ ROOT_URLCONF = 'Anfisa.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # важно!
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -85,13 +86,13 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+# статические файлы css/img и.т.д.
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "/static/"),
 ]
-
+# изображения
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
