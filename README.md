@@ -1,5 +1,5 @@
 # Django project: Assistant Anfisa
-The idea was taken from praktikum.yandex.ru
+My first django project
 ____
 # Django проект: Ассистент Анфиса
-Идея была взята с praktikum.yandex.ru
+Мой первый django проект
