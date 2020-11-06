@@ -5,7 +5,12 @@
       <meta charset="UTF-8">
       <title>{% block title %} {% endblock %}</title>
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        {% block styles %}{% endblock %}
+      <style>
+          body {
+              background-color: lightgrey;
+          }
+      </style>
+      {% block styles %}{% endblock %}
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
