@@ -17,12 +17,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'homepage',
     'icecream',
     'anfis',
     'friends_reg',
     'icecream_reg',
     'oracle',
+    'allauth',
+    'allauth.account',
 ]
 
 MIDDLEWARE = [
@@ -61,7 +64,10 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -87,6 +93,14 @@ USE_L10N = True
 
 USE_TZ = True
 
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 1  # кол-во дней до подтверждения регестрации
+
+ACCOUNT_USERNAME_MIN_LENGTH = 4  # мин кол-во символов при регестрации
+
+LOGIN_REDIRECT_URL = '/'  # куда перенаправляется после регестрации
+
+
+EMAIL_BACKEN = 'django.core.mail.backends.dummy.EmailBackend'  # в консоле
 # статические файлы css/img и.т.д.
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
@@ -97,3 +111,5 @@ STATICFILES_DIRS = [
 # изображения
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+SITE_ID = 1

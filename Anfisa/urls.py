@@ -8,6 +8,7 @@ from django.conf.urls.static import static
 # ссылки с главной страницы
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('allauth.urls')),
     path('', include('homepage.urls')),
     path('icecream/', include('icecream.urls')),
     path('friends/', include('friends_reg.urls')),
